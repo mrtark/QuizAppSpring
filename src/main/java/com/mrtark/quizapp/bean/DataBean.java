@@ -1,9 +1,6 @@
 package com.mrtark.quizapp.bean;
 
-import com.mrtark.quizapp.Model.dto.AdminsDto;
-import com.mrtark.quizapp.Model.dto.ExamsDto;
-import com.mrtark.quizapp.Model.dto.StaffsDto;
-import com.mrtark.quizapp.Model.dto.StudentsDto;
+import com.mrtark.quizapp.Model.*;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 

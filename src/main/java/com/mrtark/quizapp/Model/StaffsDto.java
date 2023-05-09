@@ -1,12 +1,12 @@
-package com.mrtark.quizapp.Model.dto;
+package com.mrtark.quizapp.Model;
 
 import lombok.*;
 import lombok.extern.log4j.Log4j2;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
-
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -14,14 +14,16 @@ import javax.validation.constraints.Size;
 @Log4j2
 @Getter
 @Setter
-public class StudentsDto {
+
+public class StaffsDto {
     private Long id;
-    @NotEmpty(message = "Okul Numarası Boş Geçilemez!")
-    private String studentNumber;
-    @NotEmpty(message = "Öğrenci Adı Boş Geçilemez!")
+    @NotEmpty(message = "Öğretmen Adı Boş Geçilemez!")
     private String name;
-    @NotEmpty(message = "Öğrenci Soyadı Boş Geçilemez!")
+    @NotEmpty(message = "Öğretmen Soyadı Boş Geçilemez!")
     private String surName;
+    @NotEmpty(message = "Öğretmen Telefon Numarası Boş Geçilemez!")
+    @Pattern(regexp = "^(\\+\\d{1,2}\\s)?\\(?\\d{3}\\)?[\\s.-]\\d{3}[\\s.-]\\d{4}$", message = "Uygun Formatta Telefon Numarası Giriniz!")
+    private String telephoneNumber;
     @NotEmpty(message = "Bölüm Bilgisi Boş Geçilemez!")
     private String department;
     @NotEmpty(message = "Email Bilgisi Boş Geçilemez!")
@@ -30,7 +32,5 @@ public class StudentsDto {
     private String email;
     @NotEmpty(message = "Bir Şifre Belirlemelisiniz!")
     private String password;
-
-
 
 }

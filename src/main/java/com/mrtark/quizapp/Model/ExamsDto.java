@@ -1,4 +1,4 @@
-package com.mrtark.quizapp.Model.dto;
+package com.mrtark.quizapp.Model;
 
 import lombok.*;
 import lombok.extern.log4j.Log4j2;
@@ -12,6 +12,7 @@ import javax.validation.constraints.NotEmpty;
 @Getter
 @Setter
 public class ExamsDto {
+    private Long id;
     @NotEmpty(message = "Sınavı Olacak Dersin Adı Boş Geçilemez!")
     private String courseName;
     @NotEmpty(message = "Sınavı Olacak Dersin Sınıf Bilgisi Boş Geçilemez!")

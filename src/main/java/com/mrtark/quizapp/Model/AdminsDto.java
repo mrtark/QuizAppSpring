@@ -1,4 +1,4 @@
-package com.mrtark.quizapp.Model.dto;
+package com.mrtark.quizapp.Model;
 
 import lombok.*;
 import lombok.extern.log4j.Log4j2;
