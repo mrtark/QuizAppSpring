@@ -11,12 +11,16 @@ import java.io.Serializable;
 @Builder
 @Log4j2
 
-@EqualsAndHashCode(of = "id")
+//@EqualsAndHashCode(of = "id")
 @Entity
-@Table(name = "admins")
-public class AdminEntity extends BaseEntity implements Serializable {
+@Table(name = "students")
+public class StudentEntity extends BaseEntity implements Serializable {
     public static final Long serialVersionUID=1L;
-    private String userName;
+    @Column(nullable = false)
+    private String studentNumber;
+    private String name;
+    private String surName;
+    private String department;
     private String email;
     @Column(nullable = false)
     private String password;
