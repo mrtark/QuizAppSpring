@@ -413,13 +413,13 @@
                     </ul>
                 </div>
                 <div class="col-10 mt-5">
-                    <section class="container tabless">
+                    <section class="tabless">
                         <div class="card girilenİslemList shadow">
                             <div class="card-header text-center bg-baslık">
                                 <h3>Öğrenci Listesi</h3>
                             </div>
                             <div>
-                                <button class="btn btn-success float-end">Öğrenci Ekle</button>
+                                 <a th:href="@{/admin/ogrenciEkle}"><button class="btn btn-success float-end">Öğrenci Ekle</button></a>
                             </div>
                             <table class="table table-hover table-striped table-sm" id="datalistregisterTable">
                                 <thead>
@@ -428,7 +428,7 @@
                                     <th  >Öğrenci No</th>
                                     <th  >Ad</th>
                                     <th  >Soyad</th>
-                                    <th  >Departman</th>
+                                    <th  >Bölüm</th>
                                     <th  >Email</th>
                                     <th  >Password</th>
                                     <th  >Tarih ve Saat</th>
@@ -448,10 +448,10 @@
                                     <td th:text="${student.email}"></td>
                                     <td th:text="${student.password}"></td>
                                     <td th:text="${student.systemCreatedDate}" class="text-center"></td>
-                                    <td class="text-center"> <a th:href="@{/update/student/{id}(id=${student.id})}"><i class="fa-solid fa-file-pen text-dark fs-4"></i></a> </td>
-                                    <td class="text-center"> <a th:href="@{/find/student/{id}(id=${student.id})}"><i class="fa-solid fa-circle-info text-dark fs-4"></i></a> </td>
+                                    <td class="text-center"> <a ><i class="fa-solid fa-file-pen text-dark fs-4"></i></a> </td>
+                                    <td class="text-center"> <a ><i class="fa-solid fa-circle-info text-dark fs-4"></i></a> </td>
                                     <td class="text-center">
-                                        <a th:onclick="'deleteSweetAlertRegister(\'/delete/register/'+${student.id}+'\')'"><i class="fa-solid fa-trash-can text-dark fs-4"></i></i>
+                                        <a th:onclick="'deleteSweetAlertRegister(\'/admin/ogrencisil/'+${student.id}+'\')'"><i class="fa-solid fa-trash-can text-dark fs-4"></i></i>
                                         </a>
                                     </td>
                                 </tr>
@@ -463,4 +463,30 @@
             </div>
         </div>
     </main>
-</body>    
+</body>
+
+
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script type="text/javascript">
+    function deleteSweetAlertRegister(url){
+        swal({
+            position: 'top-end',
+            showConfirmButton: true,
+            title: "Öğrenci Kalıcı Olarak Silinsin Mi?",
+            text: "Bu işlem geri alınamaz!",
+            icon: "warning",
+            buttons: ["İptal", "Sil"],
+            dangerMode: true,
+        })
+            .then((willDelete) => {
+                if (willDelete) {        swal("Öğrenci Silindi!", {
+                    icon: "success",
+                });
+                    window.location.href = url;
+                } else {
+                    swal("Silme İşlemi İptal Edildi.",{
+                        icon: "warning",
+                    });
+                }
+            });
+    }</script>

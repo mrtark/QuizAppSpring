@@ -2,7 +2,7 @@
 <html th:lang="${#locale.language}" xmlns:th="http://www.thymeleaf.org">
 
 <head>
-    <title>Admin Panel</title>
+    <title>Admin > Öğrenciler > Ekle</title>
 
     <!-- Turkce karakter -->
     <meta charset="utf-8">
@@ -386,9 +386,18 @@
             <div class="collapse navbar-collapse" id="collapsibleNavId">
                 <ul class="navbar-nav me-auto mt-2 mt-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active text-dark bg-light rounded-3"
+                        <a class="nav-link active text-dark bg-light rounded-3" th:href="@{/admin}"
                             aria-current="page"> > Admin <span class="visually-hidden">(current)</span></a>
                     </li>
+                    <li class="nav-item ms-2">
+                        <a class="nav-link active text-dark bg-light rounded-3" th:href="@{/admin/ogrenciler}"
+                           aria-current="page"> > Öğrenciler Listesi <span class="visually-hidden">(current)</span></a>
+                    </li>
+                    <li class="nav-item ms-2">
+                        <a class="nav-link active text-dark bg-light rounded-3"
+                           aria-current="page"> > Öğrenci Ekle <span class="visually-hidden">(current)</span></a>
+                    </li>
+                </ul>
                 </ul>
                 <ul class="navbar-nav mt-2">
                     <a class="btn btn-outline-danger" th:href="@{/admin/cikis}">Çıkış</a>
@@ -403,32 +412,85 @@
                 <div class="col-2 d-none d-sm-block mt-5">
                     <ul class="list-group shadow w-100">
                         <a class="list-group-item" th:href="@{/admin/personeller}">Personeller</a>
-                        <a class="list-group-item" th:href="@{/admin/ogrenciler}">Öğrenciler</a>
+                        <a class="list-group-item active" th:href="@{/admin/ogrenciler}">Öğrenciler </a> <a class="list-group-item active"> > Öğrenci Ekle</a>
                         <a class="list-group-item" th:href="@{/admin/bölümler}">Bölümler</a>
                         <a class="list-group-item" th:href="@{/admin/sinavlar}">Sınavlar</a>
                     </ul>
                 </div>
                 <div class="col-10 mt-5">
-                    <section class="tabless">
-                        <div class="card girilenİslemList shadow">
-                            <div class="card-header text-center bg-baslık">
-                                <h3>Kontrol Paneli</h3>
+                    <section class="w-75 shadow text-center center">
+
+                        <div class="card ileti">
+                            <div class="card-header bg-baslık h6">
+                              Manuel Öğrenci Ekle
                             </div>
-                            <table class="table table-hover table-striped table-sm" id="datalistregisterTable">
-                                <thead>
-                                <tr class="text-center text-white bg-dark">
-                                    <th  >İstatistikler</th>
-                                    <th  >İstatistikler</th>
-                                    <th  >İstatistikler</th>
-                                    <th  >İstatistikler</th>
-                                    <th  >İstatistikler</th>
-                                    <th  >İstatistikler</th>
-                                    <th  >İstatistikler</th>
-                                    <th  >İstatistikler</th>
-                                </tr>
-                                </thead>
-                            </table>
-                        </div>
+                            <div class="card-body">
+                                <form th:action="@{/admin/ogrenciEkle}" th:method="post" th:object="${create_student}" class="form-floating">
+                                    <div class="row m-2">
+                                        <div class="col">
+                                            <div class="input-group mb-3">
+                                                <span for="studentNumber" class="input-group-text" id="basic-addon1">Öğrenci No</span>
+                                                <input type="text" class="form-control" th:field="*{studentNumber}"  autofocus="true"  id="studentNumber" name="studentNumber">
+                                                <span class="text-danger" th:if="${#fields.hasErrors('studentNumber')}" th:errors="*{studentNumber}"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row m-2">
+                                        <div class="col">
+                                            <div class="input-group mb-3">
+                                                <span for="name" class="input-group-text" id="basic-addon1">Öğrenci Adı</span>
+                                                <input type="text" class="form-control" th:field="*{name}"  autofocus="false"  id="name" name="name">
+                                                <span class="text-danger" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span>
+                                            </div>
+                                        </div>
+                    
+                                        <div class="col">
+                                            <div class="input-group mb-3">
+                                                <span for="surName" class="input-group-text" id="basic-addon1">Öğrenci Soyadı</span>
+                                                <input type="text" class="form-control" th:field="*{surName}"  autofocus="false"  id="surName" name="surName">
+                                                <span class="text-danger" th:if="${#fields.hasErrors('surName')}" th:errors="*{surName}"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                    
+                                    <div class="row m-2">
+                                        <div class="col">
+                                            <div class="input-group mb-3">
+                                                <span for="department" class="input-group-text" id="basic-addon1">Okuduğu Bölüm</span>
+                                                <span for="department" class="input-group-text ms-1" id="basic-addon1">İ.İ.B.F.</span>
+                                                <input type="text" class="form-control" th:field="*{department}"  autofocus="true"  id="department" name="department">
+                                                <span class="text-danger" th:if="${#fields.hasErrors('department')}" th:errors="*{department}"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                    
+                                    <div class="row m-2">
+                                        <div class="col">
+                                            <div class="input-group mb-3">
+                                                <span for="code" class="input-group-text" id="basic-addon1">Email</span>
+                                                <input type="text" class="form-control" th:field="*{email}"  autofocus="false"  id="email" name="email">
+                                                <div class="text-danger" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                    
+                                    <div class="row m-2">
+                                        <div class="col mb-3">
+                                            <div class="input-group">
+                                                <span for="price" class="input-group-text" id="basic-addon1">Şifre</span>
+                                                <input type="text" class="form-control" th:field="*{password}"  autofocus="false"  id="password" name="password">
+                                                <div class="text-danger" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer form-group">
+                                        <input type="reset" class="shadow btn btn-outline-danger me-3" value="Temizle"/>
+                                        <input type="submit" class="shadow btn btn-success" value="Kaydet"/>
+                                    </div>
+                                </form>
+                            </div>
+                          </div>
+
                     </section>
                 </div>
             </div>

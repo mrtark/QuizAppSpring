@@ -22,8 +22,10 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpSession;
+import javax.transaction.Transactional;
 import javax.validation.Valid;
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 @RequiredArgsConstructor
@@ -31,7 +33,7 @@ import java.util.UUID;
 
 @Controller
 @RequestMapping("admin")
-public class AdminsController {
+public class AdminsController implements IAdminCrud{
     private final IAdminRepository iAdminRepository;
     private final IStudentRepository iStudentRepository;
     private final IStaffRepository iStaffRepository;
@@ -148,5 +150,37 @@ public class AdminsController {
 
         return "adminSnv";
     }
+    @GetMapping("ogrenciEkle")
+    @Override
+    public String createGetStudent(Model model){
+        model.addAttribute("create_student",new StudentsDto());
+        return "adminOgrEkle";
+    }
 
+
+    @Override
+    @PostMapping("ogrenciEkle")
+    @Transactional
+    public String createPostStudent(@Valid @ModelAttribute("create_student") StudentsDto studentsDto, BindingResult bindingResult, Model model) {
+        StudentEntity student = studentServiceImp.DtoToEntity(studentsDto);
+        if (bindingResult.hasErrors()){
+            log.error(bindingResult.hasErrors() + " : Öğrenci Ekleme Hatası. Bilgiler Tam ve Eksiksiz Girilmeli!");
+            return "adminOgrEkle";
+        }
+        iStudentRepository.save(student);
+        return "redirect:/admin/ogrenciler";
+    }
+
+    @Override
+    @GetMapping("ogrencisil/{id}")
+    public String deleteByIdStudent(@PathVariable("id") Long id, Model model) {
+        Optional<StudentEntity> findStudent = iStudentRepository.findById(id);
+        if (findStudent.isPresent()){
+            model.addAttribute("deleted_student",findStudent.get());
+            iStudentRepository.deleteById(id);
+        }else {
+            model.addAttribute("deleted_student", id + " Numaralı ID Bulunamadı. Silme İşlemi Başarısız!");
+        }
+        return "redirect:/admin/ogrenciler";
+    }
 }
