@@ -1,0 +1,489 @@
+<!doctype html>
+<html lang="en">
+<style>
+    .btn-arama {
+        background-color: #EF9A53;
+    }
+
+    .navbar {
+        background-color: #F2E7D5 !important;
+
+    }
+
+    .navbar2 {
+        background-color: #EDEDED !important;
+    }
+
+    /* h1{
+        font-family: 'Rubik Glitch', cursive;
+
+    } */
+    .kart-bg {
+        background-color: #6D9886;
+    }
+
+    .kart-bg2 {
+        background-color: #393E46;
+    }
+
+    /* a{
+        color: #F2E7D5 !important;
+    } */
+
+    /* footer */
+    footer a {
+        text-decoration: none;
+        text-decoration: none;
+    }
+
+    .ftr {
+        margin: 0;
+        padding: 0;
+        background-color: #F2E7D5;
+
+
+        height: 110px;
+    }
+
+    .ftr-ktgr a {
+        color: black;
+
+        margin-right: 25px;
+        letter-spacing: 3px;
+    }
+
+    .ftr-social a {
+        color: black;
+        margin-right: 10px;
+
+
+    }
+
+    /* iletişim */
+
+    .ileti{
+        background-color: #F2E7D5;
+    }
+
+    .user_bg{
+        background-color: #F2E7D5;
+    }
+
+    /* admin panel */
+    #adminPanel{
+        position: relative;
+    }
+
+    /* buton konum */
+    /* #yeniİşlemGirBTN{
+        position: absolute;
+        top: 80px;
+        right: 3px;
+    } */
+
+    /* islem list */
+    .islemList{
+        background-color: #f4d9ae;
+    }
+
+    .girilenİslemList{
+        background-color: #f4d9ae7a;
+    }
+
+    /* CSS */
+    .button-56 {
+        align-items: center;
+        background-color: #F2E7D5;
+        border: 2px solid #111;
+        border-radius: 8px;
+        box-sizing: border-box;
+        color: #111;
+        cursor: pointer;
+        display: flex;
+        font-family: Inter,sans-serif;
+        font-size: 16px;
+        height: 48px;
+        justify-content: center;
+        line-height: 24px;
+        max-width: 100%;
+        padding: 0 25px;
+        position: relative;
+        text-align: center;
+        text-decoration: none;
+        user-select: none;
+        -webkit-user-select: none;
+        touch-action: manipulation;
+    }
+
+    .button-56:after {
+        background-color: rgb(192, 192, 192);
+        border-radius: 8px;
+        content: "";
+        display: block;
+        height: 48px;
+        left: 0;
+        width: 100%;
+        position: absolute;
+        top: -2px;
+        transform: translate(8px, 8px);
+        transition: transform .2s ease-out;
+        z-index: -1;
+    }
+
+    .button-56:hover:after {
+        transform: translate(0, 0);
+    }
+
+    .button-56:active {
+        background-color: #ffdeda;
+        outline: 0;
+    }
+
+    .button-56:hover {
+        outline: 0;
+    }
+
+    @media (min-width: 768px) {
+        .button-56 {
+            padding: 0 40px;
+        }
+    }
+
+    #barkod{
+        width: 50px;
+    }
+
+    /* .dropdown-toggle::after{
+        display: none;
+    } */
+
+    /* checked */
+    .checkbox-wrapper-24 .checkbox {
+        display: table-cell;
+        width: 100%;
+        height: 100%;
+        vertical-align: middle;
+        text-align: center;
+    }
+
+    .checkbox-wrapper-24 label {
+        display: inline-block;
+        color: #333;
+        cursor: pointer;
+        position: relative;
+    }
+
+    .checkbox-wrapper-24 label span {
+        display: inline-block;
+        position: relative;
+        background-color: transparent;
+        width: 25px;
+        height: 25px;
+        transform-origin: center;
+        border: 2px solid rgb(165, 165, 165);
+        border-radius: 50%;
+        vertical-align: middle;
+        margin-right: 10px;
+        transition: background-color 150ms 200ms, transform 350ms cubic-bezier(0.78, -1.22, 0.17, 1.89);
+    }
+
+    .checkbox-wrapper-24 label span:before {
+        content: "";
+        width: 0px;
+        height: 2px;
+        border-radius: 2px;
+        background: #333;
+        position: absolute;
+        transform: rotate(45deg);
+        top: 13px;
+        left: 9px;
+        transition: width 50ms ease 50ms;
+        transform-origin: 0% 0%;
+    }
+
+    .checkbox-wrapper-24 label span:after {
+        content: "";
+        width: 0;
+        height: 2px;
+        border-radius: 2px;
+        background: #333;
+        position: absolute;
+        transform: rotate(305deg);
+        top: 16px;
+        left: 10px;
+        transition: width 50ms ease;
+        transform-origin: 0% 0%;
+    }
+
+    .checkbox-wrapper-24 label:hover span:before {
+        width: 5px;
+        transition: width 100ms ease;
+    }
+
+    .checkbox-wrapper-24 label:hover span:after {
+        width: 10px;
+        transition: width 150ms ease 100ms;
+    }
+
+    .checkbox-wrapper-24 input[type=checkbox] {
+        display: none;
+    }
+
+    .checkbox-wrapper-24 input[type=checkbox]:checked+label span {
+        background-color: #EF9A53;
+        transform: scale(1.25);
+    }
+
+    .checkbox-wrapper-24 input[type=checkbox]:checked+label span:after {
+        width: 10px;
+        background: #fff;
+        transition: width 150ms ease 100ms;
+    }
+
+    .checkbox-wrapper-24 input[type=checkbox]:checked+label span:before {
+        width: 5px;
+        background: #fff;
+        transition: width 150ms ease 100ms;
+    }
+
+    .checkbox-wrapper-24 input[type=checkbox]:checked+label:hover span {
+        background-color: #EF9A53;
+        transform: scale(1.25);
+    }
+
+    .checkbox-wrapper-24 input[type=checkbox]:checked+label:hover span:after {
+        width: 10px;
+        background: #fff;
+        transition: width 150ms ease 100ms;
+    }
+
+    .checkbox-wrapper-24 input[type=checkbox]:checked+label:hover span:before {
+        width: 5px;
+        background: #fff;
+        transition: width 150ms ease 100ms;
+    }
+
+    .ekle{
+        margin-right: 121px;
+        margin-bottom: 20px;
+    }
+</style>
+<head>
+    <title>Blog</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS v5.2.1 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <!-- font awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+        integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik+Glitch&display=swap" rel="stylesheet">
+    <!-- Style Css -->
+    <link rel="stylesheet" href="/style.css">
+    <!-- wow js-->
+    <!-- <script src="js/wow.min.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+    <script> new WOW().init() </script>
+    <!-- jquery UI -->
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-sm navbar-light shadow">
+        <div class="container">
+            <a class="navbar-brand text-dark" th:href="@{/home}"><i class="fa-solid fa-house"></i></a>
+            <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse"
+                data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="collapsibleNavId">
+                <ul class="navbar-nav me-auto mt-2 mt-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active text-dark active" th:href="@{/home}" aria-current="page">Anasayfa
+                            <span class="visually-hidden">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark bg-light rounded-3" th:href="@{/blog}">Blog</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle text-dark" href="#" id="dropdownId" data-bs-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">Kategoriler</a>
+                        <div class="dropdown-menu" aria-labelledby="dropdownId">
+                            <a class="dropdown-item " href="#">Teknoloji</a>
+                            <a class="dropdown-item" href="#">Sanat</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" th:href="@{/contact}">İletişim</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav mt-2">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle text-dark" href="#" id="dropdownId" data-bs-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">Kullanıcı İşlemleri</a>
+                        <div class="dropdown-menu" aria-labelledby="dropdownId">
+                            <a class="dropdown-item" href="#">Admin Panel</a>
+                            <a class="dropdown-item" href="/user_page.html">User Panel</a>
+                            <a class="dropdown-item" th:href="@{/home/product}">Ürün Listesi</a>
+                        </div>
+                    </li>
+                </ul>
+                <form class="d-flex my-2 my-lg-0">
+                    <input class="form-control me-sm-2" type="text" placeholder="Arama">
+                    <button class="btn my-2 my-sm-0 btn-arama" type="submit"><i
+                            class="fa-solid fa-magnifying-glass"></i></button>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+
+    <main>
+        <div class="container my-4">
+            <div class="row">
+                <div class="col-3 d-none d-sm-block mt-5">
+                    <!-- d-none v d-sm-block => küçük ekranda kategorileri göstermesin dedik. BLOGS&CATEGORY 182. DERS -->
+                    <ul class="list-group shadow w-100">
+                        <a class="list-group-item active" href="#">Teknoloji</a>
+                        <a class="list-group-item" href="#">İş Süreci</a>
+                        <a class="list-group-item" href="#">Otomasyon</a>
+                        <a class="list-group-item" href="#">Raporlama</a>
+                    </ul>
+                </div>
+                <div class="col-9 mt-1">
+                    <nav class=""
+                        style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='%236c757d'/%3E%3C/svg%3E&#34;);"
+                        aria-label="breadcrumb">
+                        <ol class="breadcrumb ms-1">
+                            <li class="breadcrumb-item list-unstyled"><a href="/index.html">Anasayfa</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Blog</li>
+                        </ol>
+                    </nav>
+                    <div class="card mb-3 shadow" style="max-width: 1000px;">
+                        <div class="row g-0">
+                            <div class="col-md-4">
+                                <img src="/img/Mar-Business_1.jpg" class="img-fluid rounded-start" alt="...">
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body">
+                                    <h5 class="card-title">İş Yönetimi İçin Gereklilikler</h5>
+                                    <p class="card-text">This is a wider card with supporting text below as a natural
+                                        lead-in to additional content. This content is a little bit longer.</p>
+                                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card mb-3 shadow" style="max-width: 1000px;">
+                        <div class="row g-0">
+                            <div class="col-md-4">
+                                <img src="/img/Mar-Business_1.jpg" class="img-fluid rounded-start" alt="...">
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body">
+                                    <h5 class="card-title">İş Yönetimi İçin Gereklilikler</h5>
+                                    <p class="card-text">This is a wider card with supporting text below as a natural
+                                        lead-in to additional content. This content is a little bit longer.</p>
+                                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card mb-3 shadow" style="max-width: 1000px;">
+                        <div class="row g-0">
+                            <div class="col-md-4">
+                                <img src="/img/Mar-Business_1.jpg" class="img-fluid rounded-start" alt="...">
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body">
+                                    <h5 class="card-title">İş Yönetimi İçin Gereklilikler</h5>
+                                    <p class="card-text">This is a wider card with supporting text below as a natural
+                                        lead-in to additional content. This content is a little bit longer.</p>
+                                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card mb-3 shadow" style="max-width: 1000px;">
+                        <div class="row g-0">
+                            <div class="col-md-4">
+                                <img src="/img/Mar-Business_1.jpg" class="img-fluid rounded-start" alt="...">
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body">
+                                    <h5 class="card-title">İş Yönetimi İçin Gereklilikler</h5>
+                                    <p class="card-text">This is a wider card with supporting text below as a natural
+                                        lead-in to additional content. This content is a little bit longer.</p>
+                                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <nav aria-label="Page navigation example">
+                        <ul class="pagination justify-content-center">
+                            <li class="page-item disabled">
+                                <a class="page-link">Önceki</a>
+                            </li>
+                            <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                            <li class="page-item"><a class="page-link" href="#">2</a></li>
+                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                            <li class="page-item">
+                                <a class="page-link" href="#">Sonraki</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <!-- place footer here -->
+        <section class="ftr">
+            <div class="text-center text-dark mt-4 pt-4">
+                <ul class="ftr-ktgr">
+                    <a class="" href="#">Anasayfa</a>
+                    <a class="" href="#">Blog</a>
+                    <a class="" href="#">Kategori</a>
+                    <a class="" href="#">İletişim</a>
+                </ul>
+
+            </div>
+            <div class="text-center">
+                <ul class="ftr-social">
+                    <a class="" href="#"><i class="fa-brands fa-github"></i> Github</a>
+                    <a class="" href="#"><i class="fa-brands fa-linkedin"></i> Linkedın</a>
+                    <a class="" href="#"><i class="fa-brands fa-instagram"></i> Instagram</a>
+                    <a class="" href="#"><i class="fa-brands fa-twitter"></i> Twitter</a>
+                </ul>
+            </div>
+        </section>
+        <div class="text-center text-white  bg-dark fw-light" id="copy_right">
+            2021 - <span id="copy_date"></span> <br />
+            <span>&copy; Tüm Hakları Saklıdır. <br />
+        </div>
+    </footer>
+    <!-- Bootstrap JavaScript Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+        integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
+        </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+        integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
+        </script>
+</body>
+
+</html>
