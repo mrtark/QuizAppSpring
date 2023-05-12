@@ -10,7 +10,7 @@ public class DataBean {
     public AdminsDto adminsDto(){
         return AdminsDto.builder()
                 .id(1L)
-                .userName("ROOT")
+                .username("ROOT")
                 .email("root@edu.admin.com")
                 .password("root")
                 .build();

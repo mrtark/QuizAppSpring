@@ -3,8 +3,11 @@ package com.mrtark.quizapp.Data;
 import lombok.*;
 import lombok.extern.log4j.Log4j2;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 import java.io.Serializable;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -13,10 +16,13 @@ import java.io.Serializable;
 
 @EqualsAndHashCode(of = "id")
 @Entity
-@Table(name = "admins")
-public class AdminEntity extends BaseEntity implements Serializable {
+@Table(name = "staffs")
+public class StaffEntity extends BaseEntity implements Serializable {
     public static final Long serialVersionUID=1L;
-    private String username;
+    private String name;
+    private String surName;
+    private String telephoneNumber;
+    private String department;
     private String email;
     @Column(nullable = false)
     private String password;

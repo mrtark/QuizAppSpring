@@ -1,8 +1,7 @@
 package com.mrtark.quizapp.Services;
 
-import com.mrtark.quizapp.Data.AdminEntity;
+
 import com.mrtark.quizapp.Data.StudentEntity;
-import com.mrtark.quizapp.Model.AdminsDto;
 import com.mrtark.quizapp.Model.StudentsDto;
 import com.mrtark.quizapp.Repository.IStudentRepository;
 import com.mrtark.quizapp.bean.ModelMapperBean;
@@ -92,9 +91,8 @@ public class StudentService implements StudentServiceImp{
     }
 
     @Override
-    public StudentsDto searchStudentNumber(String studentNumber) {
+    public StudentEntity searchStudentNumber(String studentNumber) {
         StudentEntity studentEntity = iStudentRepository.findByStudentNumber(studentNumber);
-        StudentsDto searchStNumber = EntitytoDto(studentEntity);
-        return searchStNumber;
+        return studentEntity;
     }
 }

@@ -10,8 +10,6 @@ import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.ui.Model;
-
 import java.util.*;
 
 @RequiredArgsConstructor
@@ -58,6 +56,7 @@ public class AdminService implements AdminServiceImp{
         return EntitytoDto(iAdminRepository.findByEmail(email));
     }
 
+
     @Override
     public AdminsDto findAdminById(Long id) {
         Optional<AdminEntity> findAdminByIdE = iAdminRepository.findById(id);
@@ -82,6 +81,11 @@ public class AdminService implements AdminServiceImp{
             adminDeleted.put(adminDtoI + " Verisi Silindi.",Boolean.TRUE);
         }
         return adminDeleted;
+    }
+
+    @Override
+    public AdminEntity searchUsername(String username) {
+        return iAdminRepository.findByUsername(username);
     }
 
 

@@ -16,7 +16,7 @@ import javax.validation.constraints.Size;
 public class AdminsDto {
     private Long id;
     @NotEmpty(message = "Kullanıcı Adı Bilgisi Boş Geçilemez!")
-    private String userName;
+    private String username;
     @NotEmpty(message = "Email Bilgisi Boş Geçilemez!")
     @Email(message = "Uygun Formatta Email Girilmedi!")
     @Size(max = 150,message = "Email Bilgisi 150 Karakterden Fazla Olamaz!")
