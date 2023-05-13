@@ -17,6 +17,7 @@ import javax.validation.constraints.Size;
 public class StudentsDto {
     private Long id;
     @NotEmpty(message = "Okul Numarası Boş Geçilemez!")
+    @Size(min = 10,max = 10,message = "Öğrenci Numarası 10 Haneden oluşmalıdır!")
     private String studentNumber;
     @NotEmpty(message = "Öğrenci Adı Boş Geçilemez!")
     private String name;
