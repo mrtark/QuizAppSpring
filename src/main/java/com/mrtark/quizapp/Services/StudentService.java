@@ -75,6 +75,7 @@ public class StudentService implements StudentServiceImp{
         Optional<StudentEntity> findStudentByIdE = iStudentRepository.findById(id);
         StudentsDto studentsDto = EntitytoDto(findStudentByIdE.get());
         if (findStudentByIdE.isPresent())
+
             return studentsDto;
         else System.out.println(findStudentByIdE + ": ID'ye ait veri bulunamadı.");
         return null;

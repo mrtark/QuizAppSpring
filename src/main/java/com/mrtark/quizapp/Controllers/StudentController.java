@@ -82,4 +82,6 @@ public class StudentController {
         session.removeAttribute("ogrenci");
         return "redirect:/ogrenci/giris";
     }
+
+    
 }

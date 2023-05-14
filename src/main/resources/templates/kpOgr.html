@@ -48,48 +48,48 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-sm navbar-light shadow fixed-top">
-        <div class="container">
-            <a class="navbar-brand text-dark" th:href="@{/home}">OBS<i
-                    class="fa-solid fa-graduation-cap ms-3"></i></i></a>
-            <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse"
+<nav class="navbar navbar-expand-sm navbar-light shadow fixed-top">
+    <div class="container">
+        <a class="navbar-brand text-dark" th:href="@{/home}">OBS<i
+                class="fa-solid fa-graduation-cap ms-3"></i></i></a>
+        <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse"
                 data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false"
                 aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="collapsibleNavId">
-                <ul class="navbar-nav me-auto mt-2 mt-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link active text-dark bg-light rounded-3" th:href="@{/home}"
-                            aria-current="page"> > Öğrenci Giriş <span class="visually-hidden">(current)</span></a>
-                    </li>
-                </ul>
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="collapsibleNavId">
+            <ul class="navbar-nav me-auto mt-2 mt-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active text-dark bg-light rounded-3" th:href="@{/home}"
+                       aria-current="page"> > Öğrenci Giriş <span class="visually-hidden">(current)</span></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<main class="bg-success w-50" style="transform: translate(50%, 50%);">
+    <section>
+        <div>
+            <div class="card-header text-white">
+                <h3>Öğrenci Girişi</h3>
+                <form action="/ogrenci/giris" method="post">
+                    <div class="mb-3">
+                        <label for="studentNumber" class="form-label">Öğrenci Numarası</label>
+                        <input type="text" name="studentNumber" class="form-control" id="studentNumber" aria-describedby="Help">
+                    </div>
+                    <div class="mb-3">
+                        <label for="password" class="form-label">Parola</label>
+                        <input type="password" name="password" class="form-control" id="password">
+                    </div>
+                    <button type="submit" class="btn btn-warning">Giriş Yap</button>
+                </form>
+
+                <a th:href="@{/admin}" class="btn btn-outline-danger mt-5 text-white">Admin Girişi</a>
+                <a  class="btn btn-outline-warning mt-5 text-white">Personel Girişi</a>
             </div>
         </div>
-    </nav>
- 
-    <main class="bg-success w-50" style="transform: translate(50%, 50%);">
-        <section>
-            <div>
-                <div class="card-header text-white">
-                    <h3>Öğrenci Girişi</h3>
-                    <form action="/ogrenci/giris" method="post">
-                        <div class="mb-3">
-                            <label for="studentNumber" class="form-label">Öğrenci Numarası</label>
-                            <input type="text" name="studentNumber" class="form-control" id="studentNumber" aria-describedby="Help">
-                        </div>
-                        <div class="mb-3">
-                            <label for="password" class="form-label">Parola</label>
-                            <input type="password" name="password" class="form-control" id="password">
-                        </div>
-                        <button type="submit" class="btn btn-warning">Giriş Yap</button>
-                    </form>
-                
-                    <a th:href="@{/admin}" class="btn btn-outline-danger mt-5 text-white">Admin Girişi</a>
-                    <a  class="btn btn-outline-warning mt-5 text-white">Personel Girişi</a>
-                </div>
-            </div>
 
-        </section>
-    </main>
-</body>    
+    </section>
+</main>
+</body>

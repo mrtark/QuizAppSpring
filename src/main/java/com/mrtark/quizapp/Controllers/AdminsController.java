@@ -183,4 +183,16 @@ public class AdminsController implements IAdminCrud{
         }
         return "redirect:/admin/ogrenciler";
     }
+    @GetMapping({"ogrenci_bul/detay/{id}","ogrenci_bul/detay"})
+    public String findStudentById(@PathVariable("id") Long id, Model model) {
+        Optional<StudentEntity> findStudent = iStudentRepository.findById(id);
+        if (findStudent.isPresent()){
+            model.addAttribute("ogr_find_key",findStudent.get());
+            return "adminOgrDetay";
+        }
+        else {
+            model.addAttribute("ogr_find_key", id + ": ID'ye ait veri bulunamadı.");
+        }
+        return "redirect:/admin/ogrenciler";
+    }
 }

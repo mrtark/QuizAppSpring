@@ -80,7 +80,7 @@
                     </li>
                 </ul>
                 <ul class="navbar-nav mt-2">
-                    <a class="btn btn-outline-danger" >Çıkış</a>
+                    <a class="btn btn-outline-danger" th:href="@{/admin/cikis}">Çıkış</a>
                 </ul>
             </div>
         </div>
@@ -134,7 +134,7 @@
                                     <td th:text="${student.password}"></td>
                                     <td th:text="${student.systemCreatedDate}" class="text-center"></td>
                                     <td class="text-center"> <a ><i class="fa-solid fa-file-pen text-dark fs-4" role="button"></i></a> </td>
-                                    <td class="text-center"> <a ><i class="fa-solid fa-circle-info text-dark fs-4" role="button"></i></a> </td>
+                                    <td class="text-center"> <a th:href="@{/admin/ogrenci_bul/detay/{id}(id=${student.id})}"><i class="fa-solid fa-circle-info text-dark fs-4" role="button"></i></a> </td>
                                     <td class="text-center">
                                         <a th:onclick="'deleteSweetAlertRegister(\'/admin/ogrencisil/'+${student.id}+'\')'"><i class="fa-solid fa-trash-can text-dark fs-4 fa-i " role="button"></i></i>
                                         </a>
