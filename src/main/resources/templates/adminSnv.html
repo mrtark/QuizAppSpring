@@ -116,7 +116,10 @@
                                     <th>Sil</th>
                                 </tr>
                                 </thead>
-
+                                <tbody>
+                                <tr th:each="student:${student_list_key}" class="text-center" style="font-family: Fira Code;">
+                                    <td th:text="${student.id}"></td>
+                                </tbody>
                             </table>
                         </div>
                     </section>

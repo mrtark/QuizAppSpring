@@ -105,8 +105,8 @@
                     <a class="nav-link dropdown-toggle text-dark" href="#" id="dropdownId" data-bs-toggle="dropdown"
                        aria-haspopup="true" aria-expanded="false">Kontrol Paneli</a>
                     <div class="dropdown-menu" aria-labelledby="dropdownId">
-                        <a class="dropdown-item" th:href="@{/admin/giriskpA}" >Admin Giriş</a>
-                        <a class="dropdown-item" th:href="@{/ogrenci}">Öğrenci Giriş</a>
+                        <a class="dropdown-item" th:href="@{/admin/giris}" >Admin Giriş</a>
+                        <a class="dropdown-item" th:href="@{/ogrenci/giris}">Öğrenci Giriş</a>
                         <a class="dropdown-item" >Personel Giriş</a>
                     </div>
                 </li>
@@ -123,7 +123,7 @@
             <div class="row row-cols-1 row-cols-md-3 g-4">
                 <div class="col">
                     <div class="card h-100 kart-bg2 text-white shadow">
-                        <img src="../static/assets/img/3024048.jpg" class="card-img-top" alt="...">
+                        <img th:src="@{/images/3024048.jpg}" class="card-img-top" alt="...">
                         <div class="card-body">
                             <h5 class="card-title">Lorem İpsum</h5>
                             <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit,
@@ -136,7 +136,7 @@
                 </div>
                 <div class="col">
                     <div class="card h-100 shadow">
-                        <img src="../static/assets/img/8262263.jpg" class="card-img-top" alt="..." th:src="@{../static/assets/img/8262263.jpg}">
+                        <img th:src="@{/images/7605885.jpg}" class="card-img-top" alt="...">
                         <div class="card-body">
                             <h5 class="card-title">Lorem İpsum</h5>
                             <p class="card-text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vel pariatur
@@ -149,7 +149,7 @@
                 </div>
                 <div class="col">
                     <div class="card h-100 kart-bg2 text-white shadow">
-                        <img src="../static/assets/img/7605885.jpg" class="card-img-top" alt="...">
+                        <img th:src="@{/images/8262263.jpg}" class="card-img-top" alt="...">
                         <div class="card-body">
                             <h5 class="card-title">Lorem İpsum</h5>
                             <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga hic,

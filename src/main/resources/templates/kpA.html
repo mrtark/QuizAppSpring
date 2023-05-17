@@ -68,10 +68,10 @@
     </div>
 </nav>
 
-<main class="bg-danger w-50" style="transform: translate(50%, 50%);">
+<main class="w-50" style="transform: translate(50%, 50%); background-color: #FEA1A1;">
     <section>
         <div>
-            <div class="card-header text-white">
+            <div class="card-header shadow-lg">
                 <h3>Yönetici Girişi</h3>
                 <form action="/admin/giris" method="post">
                     <div class="mb-3">
@@ -82,11 +82,11 @@
                         <label for="exampleInputPassword1" class="form-label">Parola</label>
                         <input type="password" name="password" class="form-control" id="exampleInputPassword1">
                     </div>
-                    <button type="submit" class="btn btn-warning">Giriş Yap</button>
+                    <button type="submit" class="btn btn-success shadow"><i class="fa-solid fa-arrow-right-to-bracket"></i> Giriş Yap</button>
                 </form>
 
-                <a class="btn btn-outline-warning mt-5 text-white">Personel Girişi</a>
-                <a th:href="@{/ogrenci/giris}" class="btn btn-outline-success mt-5 text-white">Öğrenci Girişi</a>
+                <a class="btn btn-outline-warning mt-5 text-dark shadow"><i class="fa-solid fa-clipboard-user"></i> Personel Girişi</a>
+                <a th:href="@{/ogrenci/giris}" class="btn btn-outline-info mt-5 text-dark shadow"><i class="fa-solid fa-graduation-cap"></i> Öğrenci Girişi</a>
             </div>
         </div>
 
