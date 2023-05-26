@@ -3,6 +3,7 @@ package com.mrtark.quizapp.Controllers;
 import com.mrtark.quizapp.Data.ExamResult;
 import com.mrtark.quizapp.Data.QuestionForm;
 import com.mrtark.quizapp.Data.StudentEntity;
+import com.mrtark.quizapp.Model.StudentsDto;
 import com.mrtark.quizapp.Repository.IExamResultRepository;
 import com.mrtark.quizapp.Repository.IStudentRepository;
 import com.mrtark.quizapp.Services.QuizService;
@@ -98,19 +99,26 @@ public class StudentController {
 
     @PostMapping("/sinav")
     public String quiz(@RequestParam String studentNumber, Model model, RedirectAttributes ra) {
+
+        StudentEntity user = studentServiceImp.searchStudentNumber(studentNumber);
+
         if (studentNumber.equals("")) {
             ra.addFlashAttribute("bilgi", "Öğrenci Numaranızı Girmeniz Gerekmektedir!");
             return "redirect:/ogrenci/sinavlar?ogrenciNo=girilmedi";
+        } else if ((user.getStudentNumber().equals(studentNumber))) {
+            System.out.println("oturum açan öğrenci no ile sınava giren öğrenci no eşleşti");
+            submitted = false;
+            examResult.setStudentNumber(studentNumber.toString());
+
+            QuestionForm qForm = quizService.getQuestions();
+            model.addAttribute("qForm", qForm);
+
+            return "sinav";
         }
+        return "redirect:/ogrenci/sinavlar?OturumAcanOgrenciNo=eslesmedi";
 
-        submitted = false;
-        examResult.setStudentNumber(studentNumber);
-
-        QuestionForm qForm = quizService.getQuestions();
-        model.addAttribute("qForm", qForm);
-
-        return "sinav";
     }
+
 
     Boolean submitted = false;
 
