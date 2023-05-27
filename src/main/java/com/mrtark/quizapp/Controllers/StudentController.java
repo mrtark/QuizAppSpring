@@ -109,7 +109,7 @@ public class StudentController {
             } else if (user.equals(httpSession.getAttribute("ogrenci"))) {
                 System.out.println("oturum açan öğrenci no ile sınava giren öğrenci no eşleşti");
                 submitted = false;
-                examResult.setStudentNumber(studentNumber.toString());
+                examResult.setStudentNumber(studentNumber);
 
                 QuestionForm qForm = quizService.getQuestions();
                 model.addAttribute("qForm", qForm);
@@ -121,7 +121,7 @@ public class StudentController {
     }
 
 
-    Boolean submitted = false;
+    Boolean submitted ;
 
     @PostMapping("submit")
     public String submit(@ModelAttribute QuestionForm qForm) {

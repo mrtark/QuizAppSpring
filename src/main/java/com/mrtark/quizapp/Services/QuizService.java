@@ -10,9 +10,11 @@ import lombok.extern.log4j.Log4j2;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+
 @RequiredArgsConstructor
 @Log4j2
 @Transactional
@@ -26,14 +28,13 @@ public class QuizService {
     private final IExamResultRepository iExamResultRepository;
 
 
-
     public QuestionForm getQuestions() {
         List<Question> allQues = iQuestionRepository.findAll();
         List<Question> qList = new ArrayList<Question>();
 
         Random random = new Random();
         //data.sql dosyamızdaki soru havuzumuzdan *random şekilde soruları *belirli adette getirtebiliriz.
-        for(int i=0; i<20; i++) {
+        for (int i = 0; i < 20; i++) {
             int rand = random.nextInt(allQues.size());
             qList.add(allQues.get(rand));
             allQues.remove(rand);
@@ -47,9 +48,11 @@ public class QuizService {
     public int getResult(QuestionForm qForm) {
         int correct = 0;
 
-        for(Question q: qForm.getQuestions())
-            if(question.getAns() == q.getChose())
+        for (Question q : qForm.getQuestions()) {
+            if (q.getAns() == q.getChose()) {
                 correct++;
+            }
+        }
 
         return correct;
     }
