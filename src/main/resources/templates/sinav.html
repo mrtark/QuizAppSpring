@@ -116,33 +116,33 @@
                                                             th:each="ques, i: ${qForm.questions}">
                                                             <p class="title" th:text="${ques.title}"></p>
 
-                                                            <div >
+                                                            <div ><span>A</span>
                                                                 <input type="radio" for="optionA"
                                                                     th:name="|questions[${i.index}].chose|"
                                                                     th:value="1" />
                                                                 <label th:text="${ques.optionA}" id="optionA"></label>
                                                             </div>
 
-                                                            <div >
+                                                            <div ><span>B</span>
                                                                 <input type="radio" for="optionB"
                                                                     th:name="|questions[${i.index}].chose|"
                                                                     th:value="2" />
                                                                 <label th:text="${ques.optionB}" id="optionB"></label>
                                                             </div>
 
-                                                            <div >
+                                                            <div ><span>C</span>
                                                                 <input type="radio" for="optionC"
                                                                     th:name="|questions[${i.index}].chose|"
                                                                     th:value="3" />
                                                                 <label th:text="${ques.optionC}" id="optionC"></label>
                                                             </div>
-                                                            <div >
+                                                            <div ><span>D</span>
                                                                 <input type="radio" for="optionD"
                                                                        th:name="|questions[${i.index}].chose|"
                                                                        th:value="4" />
                                                                 <label th:text="${ques.optionD}" id="optionD"></label>
                                                             </div>
-                                                            <div >
+                                                            <div ><span>E</span>
                                                                 <input type="radio" for="optionE"
                                                                        th:name="|questions[${i.index}].chose|"
                                                                        th:value="5" />
