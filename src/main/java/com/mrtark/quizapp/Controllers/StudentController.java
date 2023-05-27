@@ -98,25 +98,26 @@ public class StudentController {
     }
 
     @PostMapping("/sinav")
-    public String quiz(@RequestParam String studentNumber, Model model, RedirectAttributes ra) {
+    public String quiz(@RequestParam String studentNumber, Model model, RedirectAttributes ra, HttpSession httpSession) {
 
         StudentEntity user = studentServiceImp.searchStudentNumber(studentNumber);
 
-        if (studentNumber.equals("")) {
-            ra.addFlashAttribute("bilgi", "Öğrenci Numaranızı Girmeniz Gerekmektedir!");
-            return "redirect:/ogrenci/sinavlar?ogrenciNo=girilmedi";
-        } else if ((user.getStudentNumber().equals(studentNumber))) {
-            System.out.println("oturum açan öğrenci no ile sınava giren öğrenci no eşleşti");
-            submitted = false;
-            examResult.setStudentNumber(studentNumber.toString());
+        if (user != null){
+            if (studentNumber.equals("")) {
+                ra.addFlashAttribute("bilgi", "Öğrenci Numaranızı Girmeniz Gerekmektedir!");
+                return "redirect:/ogrenci/sinavlar?ogrenciNo=girilmedi";
+            } else if (user.equals(httpSession.getAttribute("ogrenci"))) {
+                System.out.println("oturum açan öğrenci no ile sınava giren öğrenci no eşleşti");
+                submitted = false;
+                examResult.setStudentNumber(studentNumber.toString());
 
-            QuestionForm qForm = quizService.getQuestions();
-            model.addAttribute("qForm", qForm);
+                QuestionForm qForm = quizService.getQuestions();
+                model.addAttribute("qForm", qForm);
 
-            return "sinav";
+                return "sinav";
+            }
         }
-        return "redirect:/ogrenci/sinavlar?OturumAcanOgrenciNo=eslesmedi";
-
+        return "redirect:/ogrenci/sinavlar?OturumAcanOgrenciNo=null";
     }
 
 
