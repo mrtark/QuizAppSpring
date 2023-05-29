@@ -3,8 +3,6 @@ package com.mrtark.quizapp.Controllers;
 import com.mrtark.quizapp.Data.ExamResult;
 import com.mrtark.quizapp.Data.QuestionForm;
 import com.mrtark.quizapp.Data.StudentEntity;
-import com.mrtark.quizapp.Model.StudentsDto;
-import com.mrtark.quizapp.Repository.IExamResultRepository;
 import com.mrtark.quizapp.Repository.IStudentRepository;
 import com.mrtark.quizapp.Services.QuizService;
 import com.mrtark.quizapp.Services.StudentServiceImp;
@@ -16,11 +14,9 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-
 import javax.servlet.http.HttpSession;
-import javax.transaction.Transactional;
 import javax.validation.Valid;
-import java.util.List;
+import java.util.UUID;
 
 @RequiredArgsConstructor
 @Log4j2
@@ -43,6 +39,21 @@ public class StudentController {
                     .department(i + "İ.İ.B.F.")
                     .email(i + "reco_25@gmail.com")
                     .password("1234q")
+                    .build();
+            iStudentRepository.save(studentTest);
+        }
+        return "redirect:/ogrenci/giris";
+    }
+    @GetMapping("testEncoder")
+    public String createStudentTestEncode() {
+        for (int i = 0; i < 20 ; i++) {
+            StudentEntity studentTest = StudentEntity.builder()
+                    .studentNumber("1234567890")
+                    .name("Ali")
+                    .surName("Demirci")
+                    .department(i + "İ.İ.B.F.")
+                    .email(UUID.randomUUID().toString().toUpperCase() + "@gmail.com")
+                    .password(passwordEncoderBean.passwordEncoderBeanMethod().encode("1234a"))
                     .build();
             iStudentRepository.save(studentTest);
         }
@@ -105,9 +116,10 @@ public class StudentController {
         if (user != null){
             if (studentNumber.equals("")) {
                 ra.addFlashAttribute("bilgi", "Öğrenci Numaranızı Girmeniz Gerekmektedir!");
+                System.out.println("Öğrenci Numarası Girilmedi!");
                 return "redirect:/ogrenci/sinavlar?ogrenciNo=girilmedi";
             } else if (user.equals(httpSession.getAttribute("ogrenci"))) {
-                System.out.println("oturum açan öğrenci no ile sınava giren öğrenci no eşleşti");
+                System.out.println("Giriş yapan öğrenci numarası ile sınava giren öğrenci numarası eşleşti.");
                 submitted = false;
                 examResult.setStudentNumber(studentNumber);
 
@@ -117,6 +129,7 @@ public class StudentController {
                 return "sinav";
             }
         }
+        System.out.println("Girilen öğrenci numarasına ait öğrenci bulunamadı.");
         return "redirect:/ogrenci/sinavlar?OturumAcanOgrenciNo=null";
     }
 

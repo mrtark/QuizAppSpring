@@ -1,6 +1,6 @@
-INSERT INTO questions(ques_id, title, optionA, optionB, optionC, optionD, optionE, ans, chose)
-VALUES (1,
-        'Java dilinde her nesne ....... denilen kendine has karakteristiklere sahiptir.',
+DELETE FROM questions;
+INSERT INTO questions( title, optionA, optionB, optionC, optionD, optionE, ans, chose)
+VALUES ('Java dilinde her nesne ....... denilen kendine has karakteristiklere sahiptir.',
         'component"',
         'as',
         'attributes',
@@ -10,8 +10,8 @@ VALUES (1,
         -1)
 ;
 
-INSERT INTO questions(ques_id, title, optionA, optionB, optionC, optionD, optionE, ans, chose)
-VALUES (2,
+INSERT INTO questions( title, optionA, optionB, optionC, optionD, optionE, ans, chose)
+VALUES (
         'Bir nesne tabanlı programlama dilinde aynı program komutunun farklı ortamlarda farklı anlama gelmesi ....... olarak bilinir.',
         'OOP',
         'Polymorphism',
@@ -22,8 +22,8 @@ VALUES (2,
         -1)
 ;
 
-INSERT INTO questions(ques_id, title, optionA, optionB, optionC, optionD, optionE, ans, chose)
-VALUES (3,
+INSERT INTO questions( title, optionA, optionB, optionC, optionD, optionE, ans, chose)
+VALUES (
         'Sistemle ve yazılımlarla ilgili ayar dosyalarının bulunduğu dizin aşağıdakilerden hangisidir?',
         'bin',
         'etc',
@@ -34,8 +34,8 @@ VALUES (3,
         -1)
 ;
 
-INSERT INTO questions(ques_id, title, optionA, optionB, optionC, optionD, optionE, ans, chose)
-VALUES (4,
+INSERT INTO questions( title, optionA, optionB, optionC, optionD, optionE, ans, chose)
+VALUES (
         'Aygıt erişimi için kullanılan temsili dosya nasıl adlandırılır?',
         'System',
         'Loader',
@@ -46,8 +46,8 @@ VALUES (4,
         -1)
 ;
 
-INSERT INTO questions(ques_id, title, optionA, optionB, optionC, optionD, optionE, ans, chose)
-VALUES (5,
+INSERT INTO questions( title, optionA, optionB, optionC, optionD, optionE, ans, chose)
+VALUES (
         'Java da dizilerin indeks numarası kaçtan başlar?',
         '1',
         '2',
@@ -58,8 +58,8 @@ VALUES (5,
         -1)
 ;
 
-INSERT INTO questions(ques_id, title, optionA, optionB, optionC, optionD, optionE, ans, chose)
-VALUES (6,
+INSERT INTO questions( title, optionA, optionB, optionC, optionD, optionE, ans, chose)
+VALUES (
         'Hangi operatör mod için kullanılır?',
         '*',
         '%',
@@ -70,8 +70,8 @@ VALUES (6,
         -1)
 ;
 
-INSERT INTO questions(ques_id, title, optionA, optionB, optionC, optionD, optionE, ans, chose)
-VALUES (7,
+INSERT INTO questions( title, optionA, optionB, optionC, optionD, optionE, ans, chose)
+VALUES (
         'Hangi anahtar kelime ile sınıf oluşturulur?',
         'Class',
         'class',
@@ -82,8 +82,8 @@ VALUES (7,
         -1)
 ;
 
-INSERT INTO questions(ques_id, title, optionA, optionB, optionC, optionD, optionE, ans, chose)
-VALUES (8,
+INSERT INTO questions( title, optionA, optionB, optionC, optionD, optionE, ans, chose)
+VALUES (
         'Hangisi Java dilinde tek satırlık açıklama (yorum) için kullanılan bir operatördür? ',
         '/*',
         ';',
@@ -94,8 +94,8 @@ VALUES (8,
         -1)
 ;
 
-INSERT INTO questions(ques_id, title, optionA, optionB, optionC, optionD, optionE, ans, chose)
-VALUES (9,
+INSERT INTO questions( title, optionA, optionB, optionC, optionD, optionE, ans, chose)
+VALUES (
         'Aşağıdakilerden hangisi geçerli bir Java editörü değildir?',
         'NetBeans',
         'Intellij',
@@ -106,8 +106,8 @@ VALUES (9,
         -1)
 ;
 
-INSERT INTO questions(ques_id, title, optionA, optionB, optionC, optionD, optionE, ans, chose)
-VALUES (10,
+INSERT INTO questions( title, optionA, optionB, optionC, optionD, optionE, ans, chose)
+VALUES (
         'y=4x2+2x+5 şeklindeki matematiksel ifadenin Java dilinde kodlanması hangisidir?',
         'y=4x*x+2x+5',
         'y=4x^2+2x+5',
@@ -118,8 +118,8 @@ VALUES (10,
         -1)
 ;
 
-INSERT INTO questions(ques_id, title, optionA, optionB, optionC, optionD, optionE, ans, chose)
-VALUES (11,
+INSERT INTO questions( title, optionA, optionB, optionC, optionD, optionE, ans, chose)
+VALUES (
         'Ekrana bilgi yazmak için hangi komutu eklersiniz?',
         'System.out.printx',
         'System.out.write',
@@ -130,8 +130,8 @@ VALUES (11,
         -1)
 ;
 
-INSERT INTO questions(ques_id, title, optionA, optionB, optionC, optionD, optionE, ans, chose)
-VALUES (12,
+INSERT INTO questions( title, optionA, optionB, optionC, optionD, optionE, ans, chose)
+VALUES (
         'Aşağıdakilerden hangisi Java programlama dilinin basit/temel veri türlerinden değildir?',
         'char',
         'byte',
@@ -142,8 +142,8 @@ VALUES (12,
         -1)
 ;
 
-INSERT INTO questions(ques_id, title, optionA, optionB, optionC, optionD, optionE, ans, chose)
-VALUES (13,
+INSERT INTO questions( title, optionA, optionB, optionC, optionD, optionE, ans, chose)
+VALUES (
         'Aşağıdaki veri türlerinden hangisi hafızada 2 byte’dan daha fazla yer kaplar?',
         'boolean',
         'short',
@@ -154,8 +154,8 @@ VALUES (13,
         -1)
 ;
 
-INSERT INTO questions(ques_id, title, optionA, optionB, optionC, optionD, optionE, ans, chose)
-VALUES (14,
+INSERT INTO questions( title, optionA, optionB, optionC, optionD, optionE, ans, chose)
+VALUES (
         'Java kaynak kodunu byte koda çeviren programa ne ad verilir?',
         'compiler',
         'JVM',
@@ -166,8 +166,8 @@ VALUES (14,
         -1)
 ;
 
-INSERT INTO questions(ques_id, title, optionA, optionB, optionC, optionD, optionE, ans, chose)
-VALUES (15,
+INSERT INTO questions( title, optionA, optionB, optionC, optionD, optionE, ans, chose)
+VALUES (
         'Java programlama dilinde yazılan bir kaynak programın uzantısı nedir?',
         '.exe',
         '.jar',
@@ -178,8 +178,8 @@ VALUES (15,
         -1)
 ;
 
-INSERT INTO questions(ques_id, title, optionA, optionB, optionC, optionD, optionE, ans, chose)
-VALUES (16,
+INSERT INTO questions( title, optionA, optionB, optionC, optionD, optionE, ans, chose)
+VALUES (
         'Aşağıdakilerden hangisi makineye (bilgisayar donanımına) en yakın bir programlama dilidir?',
         'Assembly',
         'Basic',
@@ -190,8 +190,8 @@ VALUES (16,
         -1)
 ;
 
-INSERT INTO questions(ques_id, title, optionA, optionB, optionC, optionD, optionE, ans, chose)
-VALUES (17,
+INSERT INTO questions( title, optionA, optionB, optionC, optionD, optionE, ans, chose)
+VALUES (
         'Java programlama dili ile ilgili olarak hangisi söylenebilir?',
         'Mobil uygulamalar geliştirilebilir',
         'Web tabanlı uygulamalar geliştirilebilir',
@@ -202,8 +202,8 @@ VALUES (17,
         -1)
 ;
 
-INSERT INTO questions(ques_id, title, optionA, optionB, optionC, optionD, optionE, ans, chose)
-VALUES (18,
+INSERT INTO questions( title, optionA, optionB, optionC, optionD, optionE, ans, chose)
+VALUES (
         'Java dili günümüzde hangi firma tarafından geliştirilmektedir?',
         'Microchip',
         'IEEE',
@@ -214,8 +214,8 @@ VALUES (18,
         -1)
 ;
 
-INSERT INTO questions(ques_id, title, optionA, optionB, optionC, optionD, optionE, ans, chose)
-VALUES (19,
+INSERT INTO questions( title, optionA, optionB, optionC, optionD, optionE, ans, chose)
+VALUES (
         'Java dili yazım kuralları olarak hangi programlama dilinin gramer yapısını kullanır?',
         'Pascal',
         'Js',
@@ -226,8 +226,8 @@ VALUES (19,
         -1)
 ;
 
-INSERT INTO questions(ques_id, title, optionA, optionB, optionC, optionD, optionE, ans, chose)
-VALUES (20,
+INSERT INTO questions( title, optionA, optionB, optionC, optionD, optionE, ans, chose)
+VALUES (
         'Aşağıdakilerden hangisi bir Java editor programı değildir?',
         'JDK',
         'NetBeans',
@@ -238,8 +238,8 @@ VALUES (20,
         -1)
 ;
 
-INSERT INTO questions(ques_id, title, optionA, optionB, optionC, optionD, optionE, ans, chose)
-VALUES (21,
+INSERT INTO questions( title, optionA, optionB, optionC, optionD, optionE, ans, chose)
+VALUES (
         'Hangisi Java dilinde komut satırını sonlandırır?',
         ';',
         '.',
@@ -250,8 +250,8 @@ VALUES (21,
         -1)
 ;
 
-INSERT INTO questions(ques_id, title, optionA, optionB, optionC, optionD, optionE, ans, chose)
-VALUES (22,
+INSERT INTO questions( title, optionA, optionB, optionC, optionD, optionE, ans, chose)
+VALUES (
         'Aşağıdakilerden hangisi 3 den 15 e kadar olan tek sayıları verir?',
         'for (int s=3; s<=15; s++)',
         'for (int s=1; s<15; s+=2)',
@@ -262,8 +262,8 @@ VALUES (22,
         -1)
 ;
 
-INSERT INTO questions(ques_id, title, optionA, optionB, optionC, optionD, optionE, ans, chose)
-VALUES (23,
+INSERT INTO questions( title, optionA, optionB, optionC, optionD, optionE, ans, chose)
+VALUES (
         'Aşağıdaki komutlardan hangisi A dizisinin son elemanını verir?',
         'A.length',
         'A.length-1',
@@ -274,8 +274,8 @@ VALUES (23,
         -1)
 ;
 
-INSERT INTO questions(ques_id, title, optionA, optionB, optionC, optionD, optionE, ans, chose)
-VALUES (24,
+INSERT INTO questions( title, optionA, optionB, optionC, optionD, optionE, ans, chose)
+VALUES (
         'Bir grup veriyi artan ya da azalan bir şekilde art arda yerleştirme işlemine ne ad verilir?',
         'Arama',
         'Sıralama',
@@ -286,8 +286,8 @@ VALUES (24,
         -1)
 ;
 
-INSERT INTO questions(ques_id, title, optionA, optionB, optionC, optionD, optionE, ans, chose)
-VALUES (25,
+INSERT INTO questions( title, optionA, optionB, optionC, optionD, optionE, ans, chose)
+VALUES (
         'Sıralı ya da sırasız listedeki bir elemanın yerinin bulunması işlemine ne ad verilir?',
         'Sıralama',
         'Bulma',
@@ -298,8 +298,8 @@ VALUES (25,
         -1)
 ;
 
-INSERT INTO questions(ques_id, title, optionA, optionB, optionC, optionD, optionE, ans, chose)
-VALUES (26,
+INSERT INTO questions( title, optionA, optionB, optionC, optionD, optionE, ans, chose)
+VALUES (
         'Javada kalıtım (miras alma) ilişkisini kurarken hangi deyim kullanılır?',
         'import',
         'Inheritance',
@@ -310,8 +310,8 @@ VALUES (26,
         -1)
 ;
 
-INSERT INTO questions(ques_id, title, optionA, optionB, optionC, optionD, optionE, ans, chose)
-VALUES (27,
+INSERT INTO questions( title, optionA, optionB, optionC, optionD, optionE, ans, chose)
+VALUES (
         'Bir sınıftan new komutu ile bellekte bir kopya oluşturulduğunda bu kopyaya ne ad verilir?',
         'Nesne',
         'Sınıf',
@@ -322,8 +322,8 @@ VALUES (27,
         -1)
 ;
 
-INSERT INTO questions(ques_id, title, optionA, optionB, optionC, optionD, optionE, ans, chose)
-VALUES (28,
+INSERT INTO questions( title, optionA, optionB, optionC, optionD, optionE, ans, chose)
+VALUES (
         'Aşağıdaki komut satırlarından hangisi ile “SAU” isimli paket oluşturulur?',
         'class SAU;',
         'import SAU;',
@@ -334,8 +334,8 @@ VALUES (28,
         -1)
 ;
 
-INSERT INTO questions(ques_id, title, optionA, optionB, optionC, optionD, optionE, ans, chose)
-VALUES (29,
+INSERT INTO questions( title, optionA, optionB, optionC, optionD, optionE, ans, chose)
+VALUES (
         'Bir sınıfın, kendisiyle aynı pakette olmayan başka bir sınıfı kullanabilmesi için, sınıf(class) tanımından önce hangi deyim kullanılmalıdır?',
         'package',
         'import',
@@ -346,8 +346,8 @@ VALUES (29,
         -1)
 ;
 
-INSERT INTO questions(ques_id, title, optionA, optionB, optionC, optionD, optionE, ans, chose)
-VALUES (30,
+INSERT INTO questions( title, optionA, optionB, optionC, optionD, optionE, ans, chose)
+VALUES (
         'Fonksiyon veya metot geriye bir değer döndürmeyecekse hangi tipte tanımlanmalıdır?',
         'static',
         'String',
@@ -358,8 +358,8 @@ VALUES (30,
         -1)
 ;
 
-INSERT INTO questions(ques_id, title, optionA, optionB, optionC, optionD, optionE, ans, chose)
-VALUES (31,
+INSERT INTO questions( title, optionA, optionB, optionC, optionD, optionE, ans, chose)
+VALUES (
         'Hangisi fonksiyondan geriye değer döndürmede kullanılan bir komuttur?',
         'return',
         'new',
@@ -370,8 +370,8 @@ VALUES (31,
         -1)
 ;
 
-INSERT INTO questions(ques_id, title, optionA, optionB, optionC, optionD, optionE, ans, chose)
-VALUES (32,
+INSERT INTO questions( title, optionA, optionB, optionC, optionD, optionE, ans, chose)
+VALUES (
         'Grafiksel ekrana yazı yazmak, çizimler yapmak için hangi applet metodu kullanılır?',
         'init()',
         'draw()',
@@ -382,8 +382,8 @@ VALUES (32,
         -1)
 ;
 
-INSERT INTO questions(ques_id, title, optionA, optionB, optionC, optionD, optionE, ans, chose)
-VALUES (33,
+INSERT INTO questions( title, optionA, optionB, optionC, optionD, optionE, ans, chose)
+VALUES (
         'Java da veri akış (stream) sınıflarını kullanabilmek için programın başında hangi paketi çağırmamız gerekir?',
         'java.lang;',
         'java.io.*;',
@@ -394,8 +394,8 @@ VALUES (33,
         -1)
 ;
 
-INSERT INTO questions(ques_id, title, optionA, optionB, optionC, optionD, optionE, ans, chose)
-VALUES (34,
+INSERT INTO questions( title, optionA, optionB, optionC, optionD, optionE, ans, chose)
+VALUES (
         'Açık olan bir dosyayı kapatmak için hangi komut kullanılır?',
         'print',
         'exit',
@@ -406,8 +406,8 @@ VALUES (34,
         -1)
 ;
 
-INSERT INTO questions(ques_id, title, optionA, optionB, optionC, optionD, optionE, ans, chose)
-VALUES (35,
+INSERT INTO questions( title, optionA, optionB, optionC, optionD, optionE, ans, chose)
+VALUES (
         'Bir hata oluşma ihtimali varsa fakat göz ardı edilmek isteniyorsa hangi deyim kullanılmalıdır?',
         'finally',
         'Exception',
@@ -418,8 +418,8 @@ VALUES (35,
         -1)
 ;
 
-INSERT INTO questions(ques_id, title, optionA, optionB, optionC, optionD, optionE, ans, chose)
-VALUES (36,
+INSERT INTO questions( title, optionA, optionB, optionC, optionD, optionE, ans, chose)
+VALUES (
         'Java dilinde bağlı liste (LinkedList), ArrayList ve Vector yapılarının hepsi hangi sınıfdan türetilmiştir?',
         'Collection',
         'Throwble',
@@ -430,8 +430,8 @@ VALUES (36,
         -1)
 ;
 
-INSERT INTO questions(ques_id, title, optionA, optionB, optionC, optionD, optionE, ans, chose)
-VALUES (37,
+INSERT INTO questions( title, optionA, optionB, optionC, optionD, optionE, ans, chose)
+VALUES (
         'İlk giren - İlk çıkar {First-In-First-Out(FIFO)} mantığı ile çalışan ve ara elemanlara erişimin doğrudan yapılamadığı özel yapıya ne ad verilir?',
         'Array',
         'Queue',
@@ -442,8 +442,8 @@ VALUES (37,
         -1)
 ;
 
-INSERT INTO questions(ques_id, title, optionA, optionB, optionC, optionD, optionE, ans, chose)
-VALUES (38,
+INSERT INTO questions( title, optionA, optionB, optionC, optionD, optionE, ans, chose)
+VALUES (
         'Java’da bir dizi bildirmek için hangisi kullanılır?',
         '//',
         '()',
@@ -454,8 +454,8 @@ VALUES (38,
         -1)
 ;
 
-INSERT INTO questions(ques_id, title, optionA, optionB, optionC, optionD, optionE, ans, chose)
-VALUES (39,
+INSERT INTO questions( title, optionA, optionB, optionC, optionD, optionE, ans, chose)
+VALUES (
         'Hangisi Java dilinde tek satırlık açıklama (yorum) için kullanılan bir operatördür?',
         '**',
         '/-',
@@ -466,8 +466,8 @@ VALUES (39,
         -1)
 ;
 
-INSERT INTO questions(ques_id, title, optionA, optionB, optionC, optionD, optionE, ans, chose)
-VALUES (40,
+INSERT INTO questions( title, optionA, optionB, optionC, optionD, optionE, ans, chose)
+VALUES (
         'Bir işlemin hata olsun olmasın mutlaka yapılması istendiğinde try/catch bloğunda hangi deyim yer almalıdır?',
         'finally',
         'default',
