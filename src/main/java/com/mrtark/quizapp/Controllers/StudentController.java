@@ -14,7 +14,6 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 import java.util.List;
@@ -147,18 +146,19 @@ public class StudentController {
             submitted = true;
         }
 
-        return "redirect:/ogrenci";
+        return "redirect:/ogrenci/sinavSonuclari";
     }
 
-    //    @ModelAttribute("hızlısonuc")
-//    public ExamResult getResult() {
-//        return examResult;
-//    }
+
     @GetMapping("sinavSonuclari")
-    public String sonuc(Model model){
+    public String getResult(Model model) {
         List<ExamResult> examResultList = quizService.getTopScore();
+        int examResultInt = examResult.getTotalCorrect();
         model.addAttribute("examResultList", examResultList);
+        model.addAttribute("result", examResult);
+        model.addAttribute("examResultInt", examResultInt);
         return "ogrenciSnvSnc";
     }
+
 
 }

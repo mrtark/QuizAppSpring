@@ -107,51 +107,40 @@
                                 <thead>
                                 <tr class="text-center text-white bg-dark">
                                     <th  >ID</th>
-                                    <th  >Sınav Id</th>
-                                    <th  >Öğrenci Numarası</th>
-                                    <th  >Toplam Doğru Cevap</th>
-                                    <th  >Sınava Giriş Tarih ve Saati</th>
-                                    <th>Detay</th>
-                                </tr>
-                                </thead>
-
-                                <tbody>
-                                <tr th:each="score : ${examResultList}"  class="text-center" style="font-family: Fira Code;">
-                                    <td th:text="${score.id}"></td>
-                                    <td th:text="${score.examId}"></td>
-                                    <td th:text="${score.studentNumber}"></td>
-                                    <td th:text="${score.totalCorrect}"></td>
-                                    <td th:text="${score.systemCreatedDate}" class="text-center"></td>
-                                    <td class="text-center"> <a><i class="fa-solid fa-circle-info text-dark fs-4"></i></a> </td>
-                                </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </section>
-                    <section class="container tabless">
-                        <div class="card girilenİslemList shadow">
-                            <div class="card-header text-center bg-baslık">
-                                <h3>Sınav Sonuçları</h3>
-                            </div>
-                            <table class="table table-hover table-striped table-sm" id="">
-                                <thead>
-                                <tr class="text-center text-white bg-dark">
-                                    <th  >Öğrenci Numarası</th>
+                                    <th  >Sınav ID</th>
                                     <th  >Toplam Doğru Cevap</th>
                                     <th>Detay</th>
                                 </tr>
                                 </thead>
 
                                 <tbody>
-                                <tr th:each="score : ${examResultList}"  class="text-center" style="font-family: Fira Code;">
-                                    <td th:text="${score.studentNumber}"></td>
-                                    <td th:text="${score.totalCorrect}"></td>
+                                <tr th:each="sonuc : ${result}"  class="text-center" style="font-family: Fira Code;">
+                                    <td th:text="${sonuc.id}"></td>
+                                    <td th:text="${sonuc.examId}"></td>
+                                    <td th:if="${sonuc.totalCorrect} != 0"></td>
                                     <td class="text-center"> <a><i class="fa-solid fa-circle-info text-dark fs-4"></i></a> </td>
                                 </tr>
                                 </tbody>
                             </table>
                         </div>
                     </section>
+<!--                    <hr>-->
+<!--                    <h6>th:if="${examResultList}" th:text="${examResultList}"</h6>-->
+<!--                    <p th:if="${examResultList}" th:text="${examResultList}">_result_</p>-->
+<!--                    <hr>-->
+<!--                    <h6>th:if="${result}" th:text="${result}"</h6>-->
+<!--                    <p th:if="${result}" th:text="${result}">_result_</p>-->
+<!--                    <p th:if="${result}" th:text="${result.id}">_id_</p>-->
+<!--                    <p th:if="${result}" th:text="${result.examId}">_examId_</p>-->
+<!--                    <p th:if="${result}" th:text="${result.studentNumber}">_studentNumber_</p>-->
+<!--                    <p th:if="${result}" th:text="${result.totalCorrect}">_totalCorrect_</p>-->
+<!--                    <p th:if="${result}" th:text="${result.getTotalCorrect()}">_getTotalCorrect_</p>-->
+<!--                    <p th:if="${result}" th:text="${result.systemCreatedDate}">_systemCreatedDate_</p>-->
+<!--                    <hr>-->
+<!--                    <p th:if="${examResultInt}" th:text="${examResultInt}">examResultInt</p>-->
+
+<!--                    <hr>-->
+
                 </div>
             </div>
         </div>

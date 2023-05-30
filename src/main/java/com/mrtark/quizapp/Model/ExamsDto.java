@@ -13,6 +13,9 @@ import javax.validation.constraints.NotEmpty;
 @Setter
 public class ExamsDto {
     private Long id;
+    private int examId;
+    private String studentNumber;
+    private int totalCorrect = 0;
     @NotEmpty(message = "Sınavı Olacak Dersin Adı Boş Geçilemez!")
     private String courseName;
     @NotEmpty(message = "Sınavı Olacak Dersin Sınıf Bilgisi Boş Geçilemez!")

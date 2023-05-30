@@ -1,6 +1,7 @@
 package com.mrtark.quizapp.Controllers;
 
 import com.mrtark.quizapp.Data.AdminEntity;
+import com.mrtark.quizapp.Data.ExamResult;
 import com.mrtark.quizapp.Data.StaffEntity;
 import com.mrtark.quizapp.Data.StudentEntity;
 import com.mrtark.quizapp.Model.AdminsDto;
@@ -10,6 +11,7 @@ import com.mrtark.quizapp.Repository.IStaffRepository;
 import com.mrtark.quizapp.Repository.IStudentRepository;
 import com.mrtark.quizapp.Services.AdminService;
 import com.mrtark.quizapp.Services.AdminServiceImp;
+import com.mrtark.quizapp.Services.QuizService;
 import com.mrtark.quizapp.Services.StudentServiceImp;
 import com.mrtark.quizapp.bean.ModelMapperBean;
 import com.mrtark.quizapp.bean.PasswordEncoderBean;
@@ -33,7 +35,7 @@ import java.util.UUID;
 
 @Controller
 @RequestMapping("admin")
-public class AdminsController implements IAdminCrud{
+public class AdminsController implements IAdminCrud {
     private final IAdminRepository iAdminRepository;
     private final IStudentRepository iStudentRepository;
     private final IStaffRepository iStaffRepository;
@@ -41,10 +43,11 @@ public class AdminsController implements IAdminCrud{
     private final PasswordEncoderBean passwordEncoderBean;
     private final AdminServiceImp adminServiceImp;
     private final StudentServiceImp studentServiceImp;
-//    private final ExamsServiceImp examsServiceImp;
+    //    private final ExamsServiceImp examsServiceImp;
+    private final QuizService quizService;
 
     @GetMapping("giriskpA")
-    public String adminGiris(HttpSession session, Model model){
+    public String adminGiris(HttpSession session, Model model) {
         return "kpA";
     }
 
@@ -61,6 +64,7 @@ public class AdminsController implements IAdminCrud{
         }
         return "redirect:/admin/giris";
     }
+
     @GetMapping("testP")
     public String createStaffTest() {
         for (int i = 0; i < 1; i++) {
@@ -81,42 +85,45 @@ public class AdminsController implements IAdminCrud{
 
     //login
     @GetMapping("")
-    public String adminHome(HttpSession httpSession, Model model){
-        if (httpSession.getAttribute("admin")== null){
+    public String adminHome(HttpSession httpSession, Model model) {
+        if (httpSession.getAttribute("admin") == null) {
             return "redirect:/admin/giris";
-        }else {
-            model.addAttribute("admin",httpSession.getAttribute("admin"));
-            model.addAttribute("ogrenciler",studentServiceImp.getStudentList());
+        } else {
+            model.addAttribute("admin", httpSession.getAttribute("admin"));
+            model.addAttribute("ogrenciler", studentServiceImp.getStudentList());
             model.addAttribute("sinavlar");
             return "admin";
         }
     }
+
     @GetMapping("giris")
-    public String signin(HttpSession httpSession, Model model){
-        if (httpSession.getAttribute("admin")!=null){
-            model.addAttribute("admin",httpSession.getAttribute("admin"));
+    public String signin(HttpSession httpSession, Model model) {
+        if (httpSession.getAttribute("admin") != null) {
+            model.addAttribute("admin", httpSession.getAttribute("admin"));
             return "redirect:/admin";
-        }else{
+        } else {
             return "kpA";
         }
     }
+
     @PostMapping({"/giris"})
     public String signinPost(@Valid @ModelAttribute AdminEntity admin, Model model, HttpSession session, BindingResult bindingResult) {
         AdminEntity user = adminServiceImp.searchUsername(admin.getUsername());
         if (bindingResult.hasErrors())
             log.error(bindingResult.hasErrors() + " :------------------");
-        if(user == null) {
+        if (user == null) {
             return "redirect:/admin/giris?kullacici=bulunamadi";
         }
-        if(!(user.getPassword().equals(admin.getPassword()))) {
+        if (!(user.getPassword().equals(admin.getPassword()))) {
             return "redirect:/admin/giris?sifre=yanlis";
         }
         session.setAttribute("admin", user);
         model.addAttribute("admin", user);
         return "redirect:/admin";
     }
+
     @GetMapping("cikis")
-    public String cikis(HttpSession session, Model model){
+    public String cikis(HttpSession session, Model model) {
         session.removeAttribute("admin");
         return "redirect:/admin/giris";
     }
@@ -129,7 +136,6 @@ public class AdminsController implements IAdminCrud{
         model.addAttribute("student_list_key", studentEntityList);
         return "adminOgr";
     }
-
 
 
     @GetMapping("personeller")
@@ -147,13 +153,15 @@ public class AdminsController implements IAdminCrud{
 
     @GetMapping("sinavlar")
     public String getAllExams(Model model) {
-
+        List<ExamResult> examResultList = quizService.getTopScore();
+        model.addAttribute("examResultList", examResultList);
         return "adminSnv";
     }
+
     @GetMapping("ogrenciEkle")
     @Override
-    public String createGetStudent(Model model){
-        model.addAttribute("create_student",new StudentsDto());
+    public String createGetStudent(Model model) {
+        model.addAttribute("create_student", new StudentsDto());
         return "adminOgrEkle";
     }
 
@@ -163,7 +171,7 @@ public class AdminsController implements IAdminCrud{
     @Transactional
     public String createPostStudent(@Valid @ModelAttribute("create_student") StudentsDto studentsDto, BindingResult bindingResult, Model model) {
         StudentEntity student = studentServiceImp.DtoToEntity(studentsDto);
-        if (bindingResult.hasErrors()){
+        if (bindingResult.hasErrors()) {
             log.error(bindingResult.hasErrors() + " : Öğrenci Ekleme Hatası. Bilgiler Tam ve Eksiksiz Girilmeli!");
             return "adminOgrEkle";
         }
@@ -175,22 +183,22 @@ public class AdminsController implements IAdminCrud{
     @GetMapping("ogrencisil/{id}")
     public String deleteByIdStudent(@PathVariable("id") Long id, Model model) {
         Optional<StudentEntity> findStudent = iStudentRepository.findById(id);
-        if (findStudent.isPresent()){
-            model.addAttribute("deleted_student",findStudent.get());
+        if (findStudent.isPresent()) {
+            model.addAttribute("deleted_student", findStudent.get());
             iStudentRepository.deleteById(id);
-        }else {
+        } else {
             model.addAttribute("deleted_student", id + " Numaralı ID Bulunamadı. Silme İşlemi Başarısız!");
         }
         return "redirect:/admin/ogrenciler";
     }
-    @GetMapping({"ogrenci_bul/detay/{id}","ogrenci_bul/detay"})
+
+    @GetMapping({"ogrenci_bul/detay/{id}", "ogrenci_bul/detay"})
     public String findStudentById(@PathVariable("id") Long id, Model model) {
         Optional<StudentEntity> findStudent = iStudentRepository.findById(id);
-        if (findStudent.isPresent()){
-            model.addAttribute("ogr_find_key",findStudent.get());
+        if (findStudent.isPresent()) {
+            model.addAttribute("ogr_find_key", findStudent.get());
             return "adminOgrDetay";
-        }
-        else {
+        } else {
             model.addAttribute("ogr_find_key", id + ": ID'ye ait veri bulunamadı.");
         }
         return "redirect:/admin/ogrenciler";
