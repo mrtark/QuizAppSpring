@@ -14,8 +14,10 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
+import java.util.List;
 import java.util.UUID;
 
 @RequiredArgsConstructor
@@ -44,9 +46,10 @@ public class StudentController {
         }
         return "redirect:/ogrenci/giris";
     }
+
     @GetMapping("testEncoder")
     public String createStudentTestEncode() {
-        for (int i = 0; i < 20 ; i++) {
+        for (int i = 0; i < 20; i++) {
             StudentEntity studentTest = StudentEntity.builder()
                     .studentNumber("1234567890")
                     .name("Ali")
@@ -61,7 +64,7 @@ public class StudentController {
     }
 
     @GetMapping({""})
-    public String home(HttpSession session, Model model) {
+    public String home(HttpSession session) {
         if (session.getAttribute("ogrenci") == null) {
             return "redirect:/ogrenci/giris";
         } else {
@@ -113,7 +116,7 @@ public class StudentController {
 
         StudentEntity user = studentServiceImp.searchStudentNumber(studentNumber);
 
-        if (user != null){
+        if (user != null) {
             if (studentNumber.equals("")) {
                 ra.addFlashAttribute("bilgi", "Öğrenci Numaranızı Girmeniz Gerekmektedir!");
                 System.out.println("Öğrenci Numarası Girilmedi!");
@@ -134,7 +137,7 @@ public class StudentController {
     }
 
 
-    Boolean submitted ;
+    Boolean submitted;
 
     @PostMapping("submit")
     public String submit(@ModelAttribute QuestionForm qForm) {
@@ -147,9 +150,15 @@ public class StudentController {
         return "redirect:/ogrenci";
     }
 
-//    @ModelAttribute("hızlısonuc")
+    //    @ModelAttribute("hızlısonuc")
 //    public ExamResult getResult() {
 //        return examResult;
 //    }
+    @GetMapping("sinavSonuclari")
+    public String sonuc(Model model){
+        List<ExamResult> examResultList = quizService.getTopScore();
+        model.addAttribute("examResultList", examResultList);
+        return "ogrenciSnvSnc";
+    }
 
 }
