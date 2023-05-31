@@ -13,9 +13,10 @@ With this application, a Quiz App is being developed as a Spring Boot learning i
 ![adminloginpage](https://github.com/mrtark/QuizAppSpring/assets/62309785/c4b081b0-e83c-49ba-b408-cef381580093)
 ![studentloginpage](https://github.com/mrtark/QuizAppSpring/assets/62309785/410568d0-6b30-4c0a-bcc2-8baf52eb32ba)
 ![adminpanel](https://github.com/mrtark/QuizAppSpring/assets/62309785/1c66c776-b76f-48bb-a126-79fd56cee2c7)
+![adminExams](https://github.com/mrtark/QuizAppSpring/assets/62309785/62b99264-e726-4440-94de-12229aff0c5d)
 ![adminpanelstudentadd](https://github.com/mrtark/QuizAppSpring/assets/62309785/d6e4ce26-4516-4d3b-af47-9107aad638b8)
 ![studentpanelquiz](https://github.com/mrtark/QuizAppSpring/assets/62309785/bf63d6c6-0185-4fd0-bbdb-236e99b962e7)
-![studentexampage](https://github.com/mrtark/QuizAppSpring/assets/62309785/8f63916d-126d-46c7-98a9-5fe81476e75d)
+![studentQuizPanel](https://github.com/mrtark/QuizAppSpring/assets/62309785/eeadd660-6c24-41dd-9e81-7bf29b0e4386)
 ---
 ## RolMap
 ### Bean
